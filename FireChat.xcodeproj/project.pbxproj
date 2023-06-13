@@ -14,6 +14,8 @@
 		47F767C72A383BD800E51028 /* TitleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F767C62A383BD800E51028 /* TitleRow.swift */; };
 		47F767CA2A383F3200E51028 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F767C92A383F3200E51028 /* Message.swift */; };
 		47F767CC2A383FAB00E51028 /* MessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F767CB2A383FAB00E51028 /* MessageBubble.swift */; };
+		47F767CE2A3842B700E51028 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F767CD2A3842B700E51028 /* UIExtensions.swift */; };
+		47F767D02A38437500E51028 /* MessageField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F767CF2A38437500E51028 /* MessageField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		47F767C62A383BD800E51028 /* TitleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleRow.swift; sourceTree = "<group>"; };
 		47F767C92A383F3200E51028 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		47F767CB2A383FAB00E51028 /* MessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubble.swift; sourceTree = "<group>"; };
+		47F767CD2A3842B700E51028 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
+		47F767CF2A38437500E51028 /* MessageField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,7 @@
 				47F767C52A383B9B00E51028 /* Components */,
 				47F767B72A383ABA00E51028 /* FireChatApp.swift */,
 				47F767B92A383ABA00E51028 /* ContentView.swift */,
+				47F767CD2A3842B700E51028 /* UIExtensions.swift */,
 				47F767BB2A383AC700E51028 /* Assets.xcassets */,
 				47F767BD2A383AC700E51028 /* Preview Content */,
 			);
@@ -80,6 +85,7 @@
 			children = (
 				47F767C62A383BD800E51028 /* TitleRow.swift */,
 				47F767CB2A383FAB00E51028 /* MessageBubble.swift */,
+				47F767CF2A38437500E51028 /* MessageField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -165,6 +171,8 @@
 				47F767BA2A383ABA00E51028 /* ContentView.swift in Sources */,
 				47F767CA2A383F3200E51028 /* Message.swift in Sources */,
 				47F767CC2A383FAB00E51028 /* MessageBubble.swift in Sources */,
+				47F767D02A38437500E51028 /* MessageField.swift in Sources */,
+				47F767CE2A3842B700E51028 /* UIExtensions.swift in Sources */,
 				47F767B82A383ABA00E51028 /* FireChatApp.swift in Sources */,
 				47F767C72A383BD800E51028 /* TitleRow.swift in Sources */,
 			);
