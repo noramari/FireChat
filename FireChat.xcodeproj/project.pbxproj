@@ -12,6 +12,7 @@
 		47F767BC2A383AC700E51028 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47F767BB2A383AC700E51028 /* Assets.xcassets */; };
 		47F767BF2A383AC700E51028 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47F767BE2A383AC700E51028 /* Preview Assets.xcassets */; };
 		47F767C72A383BD800E51028 /* TitleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F767C62A383BD800E51028 /* TitleRow.swift */; };
+		47F767CA2A383F3200E51028 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F767C92A383F3200E51028 /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		47F767BB2A383AC700E51028 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47F767BE2A383AC700E51028 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		47F767C62A383BD800E51028 /* TitleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleRow.swift; sourceTree = "<group>"; };
+		47F767C92A383F3200E51028 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 		47F767B62A383ABA00E51028 /* FireChat */ = {
 			isa = PBXGroup;
 			children = (
+				47F767C82A383F1C00E51028 /* Models */,
 				47F767C52A383B9B00E51028 /* Components */,
 				47F767B72A383ABA00E51028 /* FireChatApp.swift */,
 				47F767B92A383ABA00E51028 /* ContentView.swift */,
@@ -76,6 +79,14 @@
 				47F767C62A383BD800E51028 /* TitleRow.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		47F767C82A383F1C00E51028 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				47F767C92A383F3200E51028 /* Message.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47F767BA2A383ABA00E51028 /* ContentView.swift in Sources */,
+				47F767CA2A383F3200E51028 /* Message.swift in Sources */,
 				47F767B82A383ABA00E51028 /* FireChatApp.swift in Sources */,
 				47F767C72A383BD800E51028 /* TitleRow.swift in Sources */,
 			);
