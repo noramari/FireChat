@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		47C36B222A393A5000AC931D /* TestAccountBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C36B212A393A5000AC931D /* TestAccountBlock.swift */; };
 		47C36B242A3943AD00AC931D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C36B232A3943AD00AC931D /* User.swift */; };
+		47C36B262A39474E00AC931D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 47C36B252A39474E00AC931D /* FirebaseStorage */; };
+		47C36B282A39475500AC931D /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 47C36B272A39475500AC931D /* FirebaseStorageCombine-Community */; };
 		47D23F642A386A4C00DA01E0 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47D23F632A386A4800DA01E0 /* Poppins-Medium.ttf */; };
 		47D23F662A386A5F00DA01E0 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47D23F652A386A5F00DA01E0 /* Poppins-Regular.ttf */; };
 		47D23F682A386A6600DA01E0 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47D23F672A386A6600DA01E0 /* Poppins-SemiBold.ttf */; };
@@ -59,10 +61,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				47F767EF2A3861E100E51028 /* FirebaseFirestoreSwift in Frameworks */,
+				47C36B282A39475500AC931D /* FirebaseStorageCombine-Community in Frameworks */,
 				47F767E72A3861E100E51028 /* FirebaseAuth in Frameworks */,
 				47F767ED2A3861E100E51028 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				47F767E92A3861E100E51028 /* FirebaseAuthCombine-Community in Frameworks */,
 				47F767EB2A3861E100E51028 /* FirebaseFirestore in Frameworks */,
+				47C36B262A39474E00AC931D /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +192,8 @@
 				47F767EA2A3861E100E51028 /* FirebaseFirestore */,
 				47F767EC2A3861E100E51028 /* FirebaseFirestoreCombine-Community */,
 				47F767EE2A3861E100E51028 /* FirebaseFirestoreSwift */,
+				47C36B252A39474E00AC931D /* FirebaseStorage */,
+				47C36B272A39475500AC931D /* FirebaseStorageCombine-Community */,
 			);
 			productName = FireChat;
 			productReference = 47F767B42A383ABA00E51028 /* FireChat.app */;
@@ -399,7 +405,6 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -432,7 +437,6 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -482,6 +486,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		47C36B252A39474E00AC931D /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 47F767E52A3861E100E51028 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		47C36B272A39475500AC931D /* FirebaseStorageCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 47F767E52A3861E100E51028 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseStorageCombine-Community";
+		};
 		47F767E62A3861E100E51028 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 47F767E52A3861E100E51028 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
