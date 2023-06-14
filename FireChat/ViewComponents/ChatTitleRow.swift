@@ -1,5 +1,5 @@
 //
-//  TitleRow.swift
+//  ChatTitleRow.swift
 //  FireChat
 //
 //  Created by Noora Maeda on 2023/06/13.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TitleRow: View {
+struct ChatTitleRow: View {
     var image = "ProfilePic"
     var name = "Sarah Tanaka"
 
@@ -41,8 +41,8 @@ struct TitleRow: View {
     }
 }
 
-struct TitleRow_Previews: PreviewProvider {
+struct ChatTitleRow_Previews: PreviewProvider {
     static var previews: some View {
-        TitleRow()
+        ChatTitleRow()
     }
 }

@@ -10,13 +10,14 @@ import Firebase
 import FirebaseAuth
 
 struct LogInView: View {
-    @State var email: String = ""
-    @State var password: String = ""
-    @State var image: UIImage?
+    @ObservedObject private var vm = LogInViewModel()
 
-    @State var loginStatusMessage = ""
-    @State var isLoginMode = true
-    @State var shouldShowImagePicker = false
+    @State private var email: String = ""
+    @State private var password: String = ""
+    @State private var image: UIImage?
+
+    @State private var isLoginMode = true
+    @State private var shouldShowImagePicker = false
 
     @FocusState private var passwordIsFocused: Bool
     @FocusState private var emailIsFocused: Bool
@@ -67,7 +68,7 @@ struct LogInView: View {
 
                     Button {
                         isLoginMode = true
-                        loginStatusMessage = ""
+                        vm.loginStatusMessage = ""
                         email = ""
                         password = ""
                         image = nil
@@ -79,9 +80,13 @@ struct LogInView: View {
             }
             .font(Font.custom("Poppins-Medium", size: 18))
         }
+        .fullScreenCover(isPresented: $vm.isUserCurrentlyLoggedIn) {
+            MainMessagesView(isMessagesShown: $vm.isUserCurrentlyLoggedIn)
+        }
     }
 
-    var form: some View {
+    // MARK: - Form
+    private var form: some View {
         VStack {
             if !isLoginMode {
                 Text("Create Account")
@@ -146,7 +151,7 @@ struct LogInView: View {
             .background(Color("Peach"))
             .cornerRadius(50)
 
-            Text(self.loginStatusMessage)
+            Text(vm.loginStatusMessage)
                 .foregroundColor(.red)
                 .multilineTextAlignment(.center)
         }
@@ -157,87 +162,12 @@ struct LogInView: View {
         }
     }
 
-    private func handleFormAction() {
+    func handleFormAction() {
         if isLoginMode {
-            loginUser()
+            vm.loginUser(email: email, password: password)
         } else {
-            registerUser()
+            vm.registerUser(email: email, password: password, image: image)
         }
-    }
-
-    private func loginUser() {
-        FirebaseManager.shared.auth.signIn(withEmail: email, password: password) { result, error in
-            if let error = error {
-                self.loginStatusMessage = "Failed to log in: \(error.localizedDescription)"
-                print("Failed to log in:", error.localizedDescription)
-                return
-            }
-
-            self.loginStatusMessage = "Succesfully logged in: \(result?.user.uid ?? "")"
-            print("Succesfully logged in: \(result?.user.uid ?? "")")
-        }
-    }
-
-
-
-    private func registerUser() {
-        FirebaseManager.shared.auth.createUser(withEmail: email, password: password) {result, error in
-            if let error = error {
-                self.loginStatusMessage = "Failed to create account: \(error.localizedDescription)"
-                print("Failed to create account:", error.localizedDescription)
-                return
-            }
-
-            self.loginStatusMessage = "Succesfully created user: \(result?.user.uid ?? "")"
-            print("Succesfully created user: \(result?.user.uid ?? "")")
-
-            if (image != nil) {
-                self.persistImageToStorage()
-            }
-        }
-    }
-
-    private func persistImageToStorage() {
-        let filename = UUID().uuidString
-        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
-        let ref = FirebaseManager.shared.storage.reference(withPath: uid)
-        guard let imageData = self.image?.jpegData(compressionQuality: 0.5) else { return }
-
-        ref.putData(imageData, metadata: nil) { metadata, error in
-            if let error = error {
-                self.loginStatusMessage = "Failed to save image: \(error.localizedDescription)"
-                print("Failed to save image:", error.localizedDescription)
-                return
-            }
-
-            ref.downloadURL { url, error in
-                if let error = error {
-                    self.loginStatusMessage = "Failed to retrieve downloadURL: \(error.localizedDescription)"
-                    print("Failed to retrieve downloadURL:", error.localizedDescription)
-                    return
-                }
-
-                self.loginStatusMessage = "Succesfully stored image with url: \(url?.absoluteString ?? "")"
-                print("Succesfully stored image with url: \(url?.absoluteString ?? "")")
-
-                guard let url = url else { return }
-                storeUserInformation(imageURL: url)
-            }
-        }
-    }
-
-    private func storeUserInformation(imageURL: URL) {
-        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
-        let userData = ["email": self.email, "uid": uid, "imageURL": imageURL.absoluteString]
-
-        FirebaseManager.shared.firestore.collection("users").document(uid).setData(userData) { error in
-            if let error = error {
-                self.loginStatusMessage = "Failed to store user info: \(error.localizedDescription)"
-                print("Failed to store user info:", error.localizedDescription)
-                return
-            }
-        }
-
     }
 }
 

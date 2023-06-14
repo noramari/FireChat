@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             VStack {
-                TitleRow()
+                ChatTitleRow()
 
                 ScrollViewReader { proxy in
                     ScrollView {
