@@ -50,7 +50,7 @@ struct CustomTextField: View {
         ZStack(alignment: .leading) {
             if text.isEmpty {
                 placeholder
-                    .opacity(0.5)
+                    .opacity(0.4)
             }
 
             TextField("", text: $text, onEditingChanged: editingChanged, onCommit: commit)

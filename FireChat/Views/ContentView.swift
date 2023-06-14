@@ -10,8 +10,6 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var messagesManager = MessagesManager()
 
-    var sampleMessages = ["Hello you", "How are you doing?", "I've been building SwiftUI applications from scratch and it's so much fun!"]
-
     var body: some View {
         VStack {
             VStack {
@@ -26,15 +24,19 @@ struct ContentView: View {
                     .padding(.top, 10)
                     .background(.white)
                     .cornerRadius(25, corners: [.topLeft, .topRight])
-                    .onChange(of: messagesManager) { id in
-                        proxy.scrollTo(id, anchor: .bottom)
+                    .onChange(of: messagesManager.lastMessageId) { id in
+                        withAnimation {
+                            proxy.scrollTo(id, anchor: .bottom)
+                        }
                     }
                 }
             }
             .background(Color("Peach"))
 
             MessageField()
+                .environmentObject(messagesManager)
         }
+        .font(Font.custom("Poppins-Medium", size: 16))
     }
 }
 

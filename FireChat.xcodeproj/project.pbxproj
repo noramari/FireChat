@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47C36B222A393A5000AC931D /* TestAccountBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C36B212A393A5000AC931D /* TestAccountBlock.swift */; };
+		47D23F642A386A4C00DA01E0 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47D23F632A386A4800DA01E0 /* Poppins-Medium.ttf */; };
+		47D23F662A386A5F00DA01E0 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47D23F652A386A5F00DA01E0 /* Poppins-Regular.ttf */; };
+		47D23F682A386A6600DA01E0 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47D23F672A386A6600DA01E0 /* Poppins-SemiBold.ttf */; };
 		47F767B82A383ABA00E51028 /* FireChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F767B72A383ABA00E51028 /* FireChatApp.swift */; };
 		47F767BA2A383ABA00E51028 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F767B92A383ABA00E51028 /* ContentView.swift */; };
 		47F767BC2A383AC700E51028 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47F767BB2A383AC700E51028 /* Assets.xcassets */; };
@@ -19,9 +23,19 @@
 		47F767D92A384BF900E51028 /* MessagesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F767D82A384BF900E51028 /* MessagesManager.swift */; };
 		47F767DE2A385C4700E51028 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47F767DD2A385C4600E51028 /* GoogleService-Info.plist */; };
 		47F767E22A385CEA00E51028 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F767E12A385CEA00E51028 /* LogInView.swift */; };
+		47F767E72A3861E100E51028 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 47F767E62A3861E100E51028 /* FirebaseAuth */; };
+		47F767E92A3861E100E51028 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 47F767E82A3861E100E51028 /* FirebaseAuthCombine-Community */; };
+		47F767EB2A3861E100E51028 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 47F767EA2A3861E100E51028 /* FirebaseFirestore */; };
+		47F767ED2A3861E100E51028 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 47F767EC2A3861E100E51028 /* FirebaseFirestoreCombine-Community */; };
+		47F767EF2A3861E100E51028 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 47F767EE2A3861E100E51028 /* FirebaseFirestoreSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		47C36B212A393A5000AC931D /* TestAccountBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAccountBlock.swift; sourceTree = "<group>"; };
+		47D23F632A386A4800DA01E0 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		47D23F652A386A5F00DA01E0 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		47D23F672A386A6600DA01E0 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		47D23F692A386AEA00DA01E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		47F767B42A383ABA00E51028 /* FireChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47F767B72A383ABA00E51028 /* FireChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireChatApp.swift; sourceTree = "<group>"; };
 		47F767B92A383ABA00E51028 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -42,12 +56,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47F767EF2A3861E100E51028 /* FirebaseFirestoreSwift in Frameworks */,
+				47F767E72A3861E100E51028 /* FirebaseAuth in Frameworks */,
+				47F767ED2A3861E100E51028 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				47F767E92A3861E100E51028 /* FirebaseAuthCombine-Community in Frameworks */,
+				47F767EB2A3861E100E51028 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		47D23F602A3868E400DA01E0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				47D23F652A386A5F00DA01E0 /* Poppins-Regular.ttf */,
+				47D23F632A386A4800DA01E0 /* Poppins-Medium.ttf */,
+				47D23F672A386A6600DA01E0 /* Poppins-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		47F767AB2A383AB900E51028 = {
 			isa = PBXGroup;
 			children = (
@@ -68,12 +97,14 @@
 		47F767B62A383ABA00E51028 /* FireChat */ = {
 			isa = PBXGroup;
 			children = (
+				47F767B72A383ABA00E51028 /* FireChatApp.swift */,
 				47F767C82A383F1C00E51028 /* Models */,
 				47F767DF2A385C9E00E51028 /* Views */,
 				47F767E02A385CAE00E51028 /* Controller */,
 				47F767C52A383B9B00E51028 /* Components */,
-				47F767B72A383ABA00E51028 /* FireChatApp.swift */,
+				47D23F602A3868E400DA01E0 /* Fonts */,
 				47F767CD2A3842B700E51028 /* UIExtensions.swift */,
+				47D23F692A386AEA00DA01E0 /* Info.plist */,
 				47F767DD2A385C4600E51028 /* GoogleService-Info.plist */,
 				47F767BB2A383AC700E51028 /* Assets.xcassets */,
 				47F767BD2A383AC700E51028 /* Preview Content */,
@@ -95,6 +126,7 @@
 				47F767C62A383BD800E51028 /* TitleRow.swift */,
 				47F767CB2A383FAB00E51028 /* MessageBubble.swift */,
 				47F767CF2A38437500E51028 /* MessageField.swift */,
+				47C36B212A393A5000AC931D /* TestAccountBlock.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -117,8 +149,8 @@
 		47F767DF2A385C9E00E51028 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				47F767B92A383ABA00E51028 /* ContentView.swift */,
 				47F767E12A385CEA00E51028 /* LogInView.swift */,
+				47F767B92A383ABA00E51028 /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -148,6 +180,11 @@
 			);
 			name = FireChat;
 			packageProductDependencies = (
+				47F767E62A3861E100E51028 /* FirebaseAuth */,
+				47F767E82A3861E100E51028 /* FirebaseAuthCombine-Community */,
+				47F767EA2A3861E100E51028 /* FirebaseFirestore */,
+				47F767EC2A3861E100E51028 /* FirebaseFirestoreCombine-Community */,
+				47F767EE2A3861E100E51028 /* FirebaseFirestoreSwift */,
 			);
 			productName = FireChat;
 			productReference = 47F767B42A383ABA00E51028 /* FireChat.app */;
@@ -178,6 +215,7 @@
 			);
 			mainGroup = 47F767AB2A383AB900E51028;
 			packageReferences = (
+				47F767E52A3861E100E51028 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 47F767B52A383ABA00E51028 /* Products */;
 			projectDirPath = "";
@@ -194,8 +232,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				47F767BF2A383AC700E51028 /* Preview Assets.xcassets in Resources */,
+				47D23F642A386A4C00DA01E0 /* Poppins-Medium.ttf in Resources */,
 				47F767BC2A383AC700E51028 /* Assets.xcassets in Resources */,
+				47D23F682A386A6600DA01E0 /* Poppins-SemiBold.ttf in Resources */,
 				47F767DE2A385C4700E51028 /* GoogleService-Info.plist in Resources */,
+				47D23F662A386A5F00DA01E0 /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +256,7 @@
 				47F767E22A385CEA00E51028 /* LogInView.swift in Sources */,
 				47F767B82A383ABA00E51028 /* FireChatApp.swift in Sources */,
 				47F767C72A383BD800E51028 /* TitleRow.swift in Sources */,
+				47C36B222A393A5000AC931D /* TestAccountBlock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,11 +388,14 @@
 				DEVELOPMENT_TEAM = 4GS9DYRR67;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FireChat/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FireChat;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -376,11 +421,14 @@
 				DEVELOPMENT_TEAM = 4GS9DYRR67;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FireChat/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FireChat;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -417,6 +465,45 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		47F767E52A3861E100E51028 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		47F767E62A3861E100E51028 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 47F767E52A3861E100E51028 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		47F767E82A3861E100E51028 /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 47F767E52A3861E100E51028 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
+		};
+		47F767EA2A3861E100E51028 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 47F767E52A3861E100E51028 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		47F767EC2A3861E100E51028 /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 47F767E52A3861E100E51028 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		47F767EE2A3861E100E51028 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 47F767E52A3861E100E51028 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 47F767AC2A383AB900E51028 /* Project object */;
 }
