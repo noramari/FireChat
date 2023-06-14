@@ -8,17 +8,22 @@
 import SwiftUI
 
 struct ChatTitleRow: View {
-    var image = "ProfilePic"
-    var name = "Sarah Tanaka"
+    let chatUser: User?
+
+    @State private var isShowingAlert = false
 
     var body: some View {
         HStack(spacing: 20) {
             ZStack(alignment: .bottomTrailing) {
-                Image(image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 50, height: 50)
-                    .cornerRadius(50)
+                AsyncImage(url: URL(string: chatUser?.imageURL ?? "")) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 50, height: 50)
+                        .cornerRadius(50)
+                } placeholder: {
+                    ProgressView()
+                }
 
                 Image(systemName: "circle.fill")
                     .foregroundColor(.green)
@@ -26,7 +31,7 @@ struct ChatTitleRow: View {
             }
 
             VStack(alignment: .leading) {
-                Text(name)
+                Text(chatUser?.displayName ?? "User Name")
                     .font(Font.custom("Poppins-SemiBold", size: 30, relativeTo: .title))
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -36,13 +41,13 @@ struct ChatTitleRow: View {
                 .padding(10)
                 .background(.white)
                 .cornerRadius(50)
+                .onTapGesture {
+                    isShowingAlert = true
+                }
+                .alert("This user is not available for calls", isPresented: $isShowingAlert) {
+                    Button("OK", role: .cancel) { }
+                }
         }
         .padding()
-    }
-}
-
-struct ChatTitleRow_Previews: PreviewProvider {
-    static var previews: some View {
-        ChatTitleRow()
     }
 }

@@ -8,23 +8,35 @@
 import SwiftUI
 
 struct MessageField: View {
-//    @EnvironmentObject var messagesManager: MessagesManager
+    @ObservedObject private var vm = ChatViewModel()
+
+    var receivingUser: User?
+
     @State private var message = ""
 
     var body: some View {
         HStack {
+            Button {
+
+            } label: {
+                Image(systemName: "photo.on.rectangle")
+                    .symbolRenderingMode(.palette)
+                    .foregroundStyle(.black, Color("PeachFont"))
+            }
+
             CustomTextField(placeholder: Text("Enter your message here"), text: $message)
 
             Button {
-//                messagesManager.sendMessage(text: message)
+                vm.sendMessage(message: message, receiverID: receivingUser?.uid ?? "")
                 message = ""
             } label: {
                 Image(systemName: "paperplane.fill")
-                    .foregroundColor(.white)
+                    .foregroundColor( (message == "") ? .white : .black )
                     .padding(10)
                     .background(Color("Peach"))
                     .cornerRadius(50)
             }
+            .disabled(message == "")
         }
         .padding(.leading, 20)
         .padding(.trailing)
@@ -32,12 +44,6 @@ struct MessageField: View {
         .background(Color("Gray"))
         .cornerRadius(50)
         .padding()
-    }
-}
-
-struct MessageField_Previews: PreviewProvider {
-    static var previews: some View {
-        MessageField()
     }
 }
 

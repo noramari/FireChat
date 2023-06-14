@@ -7,7 +7,10 @@
 
 import Foundation
 
-struct User {
+struct User: Identifiable, Hashable {
+
+    var id: String { uid }
+    
     var uid: String
     var email: String
     var displayName: String

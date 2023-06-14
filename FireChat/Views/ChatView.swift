@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  ChatView.swift
 //  FireChat
 //
 //  Created by Noora Maeda on 2023/06/13.
@@ -7,13 +7,15 @@
 
 import SwiftUI
 
-struct ContentView: View {
-//    @StateObject var messagesManager = MessagesManager()
+struct ChatView: View {
+    @ObservedObject private var vm = ChatViewModel()
+    
+    let chatUser: User?
 
     var body: some View {
-        VStack {
+        NavigationStack {
             VStack {
-                ChatTitleRow()
+                ChatTitleRow(chatUser: chatUser)
 
                 ScrollViewReader { proxy in
                     ScrollView {
@@ -33,15 +35,9 @@ struct ContentView: View {
             }
             .background(Color("Peach"))
 
-//            MessageField()
-//                .environmentObject(messagesManager)
+            MessageField(receivingUser: chatUser)
         }
+        .tint(.black)
         .font(Font.custom("Poppins-Medium", size: 16))
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
