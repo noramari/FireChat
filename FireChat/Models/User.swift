@@ -12,4 +12,5 @@ struct User: Identifiable, Codable {
     var email: String
     var password: String
     var displayName: String
+    var imageURL: String
 }

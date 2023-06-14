@@ -13,6 +13,8 @@
 		47C36B282A39475500AC931D /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 47C36B272A39475500AC931D /* FirebaseStorageCombine-Community */; };
 		47C36B2C2A3951A000AC931D /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C36B2B2A3951A000AC931D /* FirebaseManager.swift */; };
 		47C36B2F2A39561900AC931D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C36B2E2A39561900AC931D /* ImagePicker.swift */; };
+		47C36B312A3968C000AC931D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47C36B302A3968BF00AC931D /* GoogleService-Info.plist */; };
+		47C36B332A3974EC00AC931D /* MainMessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C36B322A3974EB00AC931D /* MainMessagesView.swift */; };
 		47D23F642A386A4C00DA01E0 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47D23F632A386A4800DA01E0 /* Poppins-Medium.ttf */; };
 		47D23F662A386A5F00DA01E0 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47D23F652A386A5F00DA01E0 /* Poppins-Regular.ttf */; };
 		47D23F682A386A6600DA01E0 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47D23F672A386A6600DA01E0 /* Poppins-SemiBold.ttf */; };
@@ -26,7 +28,6 @@
 		47F767CE2A3842B700E51028 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F767CD2A3842B700E51028 /* UIExtensions.swift */; };
 		47F767D02A38437500E51028 /* MessageField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F767CF2A38437500E51028 /* MessageField.swift */; };
 		47F767D92A384BF900E51028 /* MessagesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F767D82A384BF900E51028 /* MessagesManager.swift */; };
-		47F767DE2A385C4700E51028 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47F767DD2A385C4600E51028 /* GoogleService-Info.plist */; };
 		47F767E22A385CEA00E51028 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F767E12A385CEA00E51028 /* LogInView.swift */; };
 		47F767E72A3861E100E51028 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 47F767E62A3861E100E51028 /* FirebaseAuth */; };
 		47F767E92A3861E100E51028 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 47F767E82A3861E100E51028 /* FirebaseAuthCombine-Community */; };
@@ -40,6 +41,8 @@
 		47C36B232A3943AD00AC931D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		47C36B2B2A3951A000AC931D /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		47C36B2E2A39561900AC931D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		47C36B302A3968BF00AC931D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		47C36B322A3974EB00AC931D /* MainMessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMessagesView.swift; sourceTree = "<group>"; };
 		47D23F632A386A4800DA01E0 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		47D23F652A386A5F00DA01E0 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		47D23F672A386A6600DA01E0 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -55,7 +58,6 @@
 		47F767CD2A3842B700E51028 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		47F767CF2A38437500E51028 /* MessageField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageField.swift; sourceTree = "<group>"; };
 		47F767D82A384BF900E51028 /* MessagesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesManager.swift; sourceTree = "<group>"; };
-		47F767DD2A385C4600E51028 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		47F767E12A385CEA00E51028 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,7 +126,7 @@
 				47C36B2D2A39560100AC931D /* Extensions */,
 				47D23F602A3868E400DA01E0 /* Fonts */,
 				47D23F692A386AEA00DA01E0 /* Info.plist */,
-				47F767DD2A385C4600E51028 /* GoogleService-Info.plist */,
+				47C36B302A3968BF00AC931D /* GoogleService-Info.plist */,
 				47F767BB2A383AC700E51028 /* Assets.xcassets */,
 				47F767BD2A383AC700E51028 /* Preview Content */,
 			);
@@ -170,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				47F767E12A385CEA00E51028 /* LogInView.swift */,
+				47C36B322A3974EB00AC931D /* MainMessagesView.swift */,
 				47F767B92A383ABA00E51028 /* ContentView.swift */,
 			);
 			path = Views;
@@ -258,8 +261,8 @@
 				47D23F642A386A4C00DA01E0 /* Poppins-Medium.ttf in Resources */,
 				47F767BC2A383AC700E51028 /* Assets.xcassets in Resources */,
 				47D23F682A386A6600DA01E0 /* Poppins-SemiBold.ttf in Resources */,
-				47F767DE2A385C4700E51028 /* GoogleService-Info.plist in Resources */,
 				47D23F662A386A5F00DA01E0 /* Poppins-Regular.ttf in Resources */,
+				47C36B312A3968C000AC931D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +286,7 @@
 				47F767C72A383BD800E51028 /* TitleRow.swift in Sources */,
 				47C36B222A393A5000AC931D /* TestAccountBlock.swift in Sources */,
 				47C36B242A3943AD00AC931D /* User.swift in Sources */,
+				47C36B332A3974EC00AC931D /* MainMessagesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +424,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -452,6 +457,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
