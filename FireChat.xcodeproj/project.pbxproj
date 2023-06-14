@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		47C36B222A393A5000AC931D /* TestAccountBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C36B212A393A5000AC931D /* TestAccountBlock.swift */; };
+		47C36B242A3943AD00AC931D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C36B232A3943AD00AC931D /* User.swift */; };
 		47D23F642A386A4C00DA01E0 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47D23F632A386A4800DA01E0 /* Poppins-Medium.ttf */; };
 		47D23F662A386A5F00DA01E0 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47D23F652A386A5F00DA01E0 /* Poppins-Regular.ttf */; };
 		47D23F682A386A6600DA01E0 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47D23F672A386A6600DA01E0 /* Poppins-SemiBold.ttf */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		47C36B212A393A5000AC931D /* TestAccountBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAccountBlock.swift; sourceTree = "<group>"; };
+		47C36B232A3943AD00AC931D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		47D23F632A386A4800DA01E0 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		47D23F652A386A5F00DA01E0 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		47D23F672A386A6600DA01E0 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				47F767C92A383F3200E51028 /* Message.swift */,
+				47C36B232A3943AD00AC931D /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				47F767B82A383ABA00E51028 /* FireChatApp.swift in Sources */,
 				47F767C72A383BD800E51028 /* TitleRow.swift in Sources */,
 				47C36B222A393A5000AC931D /* TestAccountBlock.swift in Sources */,
+				47C36B242A3943AD00AC931D /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

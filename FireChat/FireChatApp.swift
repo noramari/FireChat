@@ -24,8 +24,8 @@ struct FireChatApp: App {
 
     var body: some Scene {
         WindowGroup {
-            LogInView()
-//            ContentView()
+//            LogInView()
+            ContentView()
         }
     }
 }

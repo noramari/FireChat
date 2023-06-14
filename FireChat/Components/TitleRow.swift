@@ -13,21 +13,21 @@ struct TitleRow: View {
 
     var body: some View {
         HStack(spacing: 20) {
-            ZStack {
+            ZStack(alignment: .bottomTrailing) {
                 Image(image)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 50, height: 50)
                     .cornerRadius(50)
+
+                Image(systemName: "circle.fill")
+                    .foregroundColor(.green)
+                    .font(Font.custom("Poppins-SemiBold", size: 12))
             }
 
             VStack(alignment: .leading) {
                 Text(name)
                     .font(Font.custom("Poppins-SemiBold", size: 30, relativeTo: .title))
-
-                Text("Online")
-                    .font(Font.custom("Poppins-Regular", size: 12, relativeTo: .caption))
-                    .foregroundColor(.gray)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
 

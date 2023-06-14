@@ -13,57 +13,59 @@ struct LogInView: View {
     @State var password: String = ""
 
     var body: some View {
-        VStack {
-            Spacer()
+        NavigationView {
+            VStack {
+                Spacer()
 
-            Text("🔥 FireChat")
-                .font(Font.custom("Poppins-SemiBold", size: 30, relativeTo: .title))
-
-            Spacer()
-
-            // MARK: - ログイン
-            form
-
-            // MARK: - テスト用アカウント
-            if isLoginMode {
-                TestAccountBlock()
+                Text("🔥 FireChat")
+                    .font(Font.custom("Poppins-SemiBold", size: 30, relativeTo: .title))
 
                 Spacer()
 
-            // MARK: - アカウント作成ボタン
-                Group {
-                    Text("New user?")
+                // MARK: - ログイン
+                form
+
+                // MARK: - テスト用アカウント
+                if isLoginMode {
+                    TestAccountBlock()
+
+                    Spacer()
+
+                // MARK: - アカウント作成ボタン
+                    Group {
+                        Text("New user?")
+
+                        Button {
+                            isLoginMode = false
+                        } label: {
+                            HStack(spacing: 5) {
+                                Image(systemName: "person.badge.plus")
+                                    .symbolRenderingMode(.palette)
+                                    .foregroundStyle(.black, Color("PeachFont"))
+                                    .font(Font.custom("Poppins-SemiBold", size: 18))
+                                Text("Create Account")
+                            }
+                            .foregroundColor(Color("PeachFont"))
+                            .padding(.horizontal, 20)
+                            .padding(.vertical)
+                        }
+                        .background(Color("Peach"))
+                        .cornerRadius(50)
+                        .padding(.bottom)
+                    }
+                } else {
+                    Spacer()
 
                     Button {
-                        isLoginMode = false
+                        isLoginMode = true
                     } label: {
-                        HStack(spacing: 5) {
-                            Image(systemName: "person.badge.plus")
-                                .symbolRenderingMode(.palette)
-                                .foregroundStyle(.black, Color("PeachFont"))
-                                .font(Font.custom("Poppins-SemiBold", size: 18))
-                            Text("Create Account")
-                        }
-                        .foregroundColor(Color("PeachFont"))
-                        .padding(.horizontal, 20)
-                        .padding(.vertical)
+                        Text("Cancel")
+                            .foregroundColor(.black)
                     }
-                    .background(Color("Peach"))
-                    .cornerRadius(50)
-                    .padding(.bottom)
-                }
-            } else {
-                Spacer()
-
-                Button {
-                    isLoginMode = true
-                } label: {
-                    Text("Cancel")
-                        .foregroundColor(.black)
                 }
             }
+            .font(Font.custom("Poppins-Medium", size: 18))
         }
-        .font(Font.custom("Poppins-Medium", size: 18))
     }
 
     var form: some View {
