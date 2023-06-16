@@ -117,7 +117,8 @@ class ChatViewModel: ObservableObject {
             FirebaseConstants.toId: toID,
             FirebaseConstants.imageUrl: receivingUser.imageURL,
             FirebaseConstants.displayName: receivingUser.displayName,
-            FirebaseConstants.email: receivingUser.email
+            FirebaseConstants.email: receivingUser.email,
+            FirebaseConstants.phoneNumber: receivingUser.phoneNumber
         ] as [String : Any]
 
         document.setData(data) { error in
@@ -140,7 +141,8 @@ class ChatViewModel: ObservableObject {
             FirebaseConstants.toId: toID,
             FirebaseConstants.imageUrl: currentUser.imageURL,
             FirebaseConstants.displayName: currentUser.displayName,
-            FirebaseConstants.email: currentUser.email
+            FirebaseConstants.email: currentUser.email,
+            FirebaseConstants.phoneNumber: currentUser.phoneNumber
         ] as [String : Any]
 
         recipientDocument.setData(recipientData) { error in

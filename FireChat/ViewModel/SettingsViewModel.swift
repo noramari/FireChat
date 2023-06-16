@@ -60,9 +60,7 @@ class SettingsViewModel: ObservableObject {
                 }
                 self.errorMessage = "Data Saved!"
             }
-        } else {
-
-        }
+        } 
 
         if (displayName != nil) {
             FirebaseManager.shared.firestore.collection("users").document(uid)

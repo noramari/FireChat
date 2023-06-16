@@ -53,8 +53,7 @@ struct MainMessagesView: View {
 
                     Button {
                         let uid = FirebaseManager.shared.auth.currentUser?.uid == message.fromId ? message.toId : message.fromId
-                        self.chatReceivingUser = .init(data: [FirebaseConstants.email: message.email, FirebaseConstants.imageUrl: message.imageURL, FirebaseConstants.uid: uid])
-                        print(chatReceivingUser)
+                        self.chatReceivingUser = .init(data: [FirebaseConstants.email: message.email, FirebaseConstants.imageUrl: message.imageURL, FirebaseConstants.uid: uid, FirebaseConstants.displayName: message.displayName, FirebaseConstants.phoneNumber: message.phoneNumber])
                         self.chatViewModel.receivingUser = self.chatReceivingUser
                         self.chatViewModel.fetchMessages()
                         self.shouldNavigateToChatLogView.toggle()

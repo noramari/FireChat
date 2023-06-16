@@ -14,7 +14,7 @@ struct RecentMessage: Identifiable {
 
     let documentID: String
     let text, fromId, toId: String
-    let email, displayName, imageURL: String
+    let email, displayName, phoneNumber, imageURL: String
     let timestamp: Timestamp
 
     init(documentID: String, data: [String: Any]) {
@@ -24,6 +24,7 @@ struct RecentMessage: Identifiable {
         self.text = data["text"] as? String ?? ""
         self.email = data["email"] as? String ?? ""
         self.displayName = data["displayName"] as? String ?? email.components(separatedBy: "@")[0].capitalized
+        self.phoneNumber = data[FirebaseConstants.phoneNumber] as? String ?? ""
         self.imageURL = data["imageURL"] as? String ?? ""
         self.timestamp = data["timestamp"] as? Timestamp ?? Timestamp()
     }

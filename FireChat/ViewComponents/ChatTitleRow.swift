@@ -43,7 +43,7 @@ struct ChatTitleRow: View {
                 .cornerRadius(50)
                 .onTapGesture {
                     let numberString = chatUser?.phoneNumber ?? ""
-                    if numberString == "" {
+                    if numberString == "" || numberString == "tel://" {
                         isShowingAlert = true
                     } else {
                         guard let url = URL(string: numberString) else { return }
