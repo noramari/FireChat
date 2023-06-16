@@ -25,9 +25,9 @@ struct ChatTitleRow: View {
                     ProgressView()
                 }
 
-                Image(systemName: "circle.fill")
-                    .foregroundColor(.green)
-                    .font(Font.custom("Poppins-SemiBold", size: 12))
+//                Image(systemName: "circle.fill")
+//                    .foregroundColor(.green)
+//                    .font(Font.custom("Poppins-SemiBold", size: 12))
             }
 
             VStack(alignment: .leading) {

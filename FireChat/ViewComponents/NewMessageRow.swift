@@ -23,10 +23,10 @@ struct NewMessageRow: View {
                     ProgressView()
                 }
 
-                Image(systemName: "circle.fill")
-                    .foregroundColor(.green)
-                    .font(Font.custom("Poppins-SemiBold", size: 12))
-                    .offset(x: -3, y: -3)
+//                Image(systemName: "circle.fill")
+//                    .foregroundColor(.green)
+//                    .font(Font.custom("Poppins-SemiBold", size: 12))
+//                    .offset(x: -3, y: -3)
             }
 
             VStack(alignment: .leading) {

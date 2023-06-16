@@ -21,13 +21,13 @@ struct MessageField: View {
 
     var body: some View {
         HStack {
-            Button {
-
-            } label: {
-                Image(systemName: "photo.on.rectangle")
-                    .symbolRenderingMode(.palette)
-                    .foregroundStyle(.black, Color("PeachFont"))
-            }
+//            Button {
+//
+//            } label: {
+//                Image(systemName: "photo.on.rectangle")
+//                    .symbolRenderingMode(.palette)
+//                    .foregroundStyle(.black, Color("PeachFont"))
+//            }
 
             CustomTextField(placeholder: Text("Enter your message here"), text: $message)
 

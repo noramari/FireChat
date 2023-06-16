@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		479F7A822A3BFF1F00EB011E /* WelcomeMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479F7A812A3BFF1F00EB011E /* WelcomeMessage.swift */; };
 		47C36B222A393A5000AC931D /* TestAccountBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C36B212A393A5000AC931D /* TestAccountBlock.swift */; };
 		47C36B242A3943AD00AC931D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C36B232A3943AD00AC931D /* User.swift */; };
 		47C36B2C2A3951A000AC931D /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C36B2B2A3951A000AC931D /* FirebaseManager.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		479F7A812A3BFF1F00EB011E /* WelcomeMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeMessage.swift; sourceTree = "<group>"; };
 		47C36B212A393A5000AC931D /* TestAccountBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAccountBlock.swift; sourceTree = "<group>"; };
 		47C36B232A3943AD00AC931D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		47C36B2B2A3951A000AC931D /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				47F767CB2A383FAB00E51028 /* MessageBubble.swift */,
 				47C36B212A393A5000AC931D /* TestAccountBlock.swift */,
 				47C36B412A39AB3700AC931D /* NewMessageRow.swift */,
+				479F7A812A3BFF1F00EB011E /* WelcomeMessage.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				47C36B462A39DA8400AC931D /* RecentMessage.swift in Sources */,
 				47C36B372A3978C800AC931D /* MainMessagesRow.swift in Sources */,
 				47F767D02A38437500E51028 /* MessageField.swift in Sources */,
+				479F7A822A3BFF1F00EB011E /* WelcomeMessage.swift in Sources */,
 				47F767CE2A3842B700E51028 /* UIExtensions.swift in Sources */,
 				47C36B422A39AB3700AC931D /* NewMessageRow.swift in Sources */,
 				47F767E22A385CEA00E51028 /* LogInView.swift in Sources */,

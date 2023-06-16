@@ -106,7 +106,11 @@ struct MainMessagesView: View {
                     Divider()
 
                 }
+                if vm.recentMessages.isEmpty {
+                    WelcomeMessage()
+                }
             }
+            .frame(maxWidth: .infinity)
             .padding(.top, 10)
             .background(.white)
             .cornerRadius(25, corners: [.topLeft, .topRight])
