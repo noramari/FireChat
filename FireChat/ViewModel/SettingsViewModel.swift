@@ -45,8 +45,24 @@ class SettingsViewModel: ObservableObject {
         }
     }
 
-    func updateUserInfo(displayName: String?, image: UIImage?) {
+    func updateUserInfo(displayName: String?, image: UIImage?, phone: String?) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
+
+        if phone != nil {
+            let formattedNumber = formatPhone(number: phone!)
+
+            FirebaseManager.shared.firestore.collection("users").document(uid)
+                .updateData(([FirebaseConstants.phoneNumber: formattedNumber])) { error in
+                if let error = error {
+                    self.errorMessage = "Failed to store user info: \(error.localizedDescription)"
+                    print("Failed to store user info:", error.localizedDescription)
+                    return
+                }
+                self.errorMessage = "Data Saved!"
+            }
+        } else {
+
+        }
 
         if (displayName != nil) {
             FirebaseManager.shared.firestore.collection("users").document(uid)
@@ -63,6 +79,11 @@ class SettingsViewModel: ObservableObject {
         if (image != nil) {
             saveImage(image: image!)
         }
+    }
+
+    func formatPhone(number: String) -> String {
+        let tel = "tel://"
+        return tel + number
     }
 
     func saveImage(image: UIImage) {
@@ -96,7 +117,7 @@ class SettingsViewModel: ObservableObject {
                             print("Failed to store user info:", error.localizedDescription)
                             return
                         }
-                        self.errorMessage = "Data Saved!"
+                        self.errorMessage = "Image Saved!"
                     }
             }
         }

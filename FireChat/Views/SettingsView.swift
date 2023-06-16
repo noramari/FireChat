@@ -8,16 +8,25 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @ObservedObject private var vm = SettingsViewModel()
+    @ObservedObject var vm: SettingsViewModel
 
     @Environment(\.dismiss) private var dismiss
 
     @State private var displayName: String = ""
+    @State private var phoneNumber: String = ""
     @State private var newImage: UIImage?
 
     @State private var shouldShowImagePicker = false
 
     @FocusState private var nameIsFocused: Bool
+    @FocusState private var numberIsFocused: Bool
+
+    init(displayName: String, phone: String) {
+        self.vm = SettingsViewModel()
+        self._nameIsFocused = FocusState()
+        self._displayName = State(initialValue: displayName)
+        self._phoneNumber = State(initialValue: phone.replacingOccurrences(of: "tel://", with: ""))
+    }
     
     var body: some View {
         VStack {
@@ -44,6 +53,10 @@ struct SettingsView: View {
             form
 
             Spacer()
+        }
+        .onTapGesture {
+            nameIsFocused = false
+            numberIsFocused = false
         }
     }
 
@@ -98,15 +111,26 @@ struct SettingsView: View {
                 .background(.white)
                 .focused($nameIsFocused)
 
+            // MARK: - Phone Number
+            HStack {
+                Image(systemName: "phone.fill")
+                    .font(Font.custom("Poppins-SemiBold", size: 18))
+                    .padding()
+
+                TextField((vm.currentUser?.phoneNumber.replacingOccurrences(of: "tel://", with: "") ?? "Add Phone Number"), text: $phoneNumber)
+                    .keyboardType(.phonePad)
+                    .focused($numberIsFocused)
+            }
+            .background(Color("Gray"))
+            .cornerRadius(20)
+
             Spacer()
 
             // MARK: - Save Button
             Button {
                 nameIsFocused = false
-                if displayName == "" {
-                    displayName = vm.currentUser?.displayName ?? ""
-                }
-                vm.updateUserInfo(displayName: displayName, image: newImage)
+                numberIsFocused = false
+                vm.updateUserInfo(displayName: displayName, image: newImage, phone: phoneNumber)
             } label: {
                 HStack(spacing: 5) {
                     Image(systemName: "square.and.arrow.down")
@@ -133,14 +157,5 @@ struct SettingsView: View {
         .fullScreenCover(isPresented: $shouldShowImagePicker) {
             ImagePicker(image: $newImage)
         }
-        .onTapGesture {
-            nameIsFocused = false
-        }
-    }
-}
-
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
     }
 }

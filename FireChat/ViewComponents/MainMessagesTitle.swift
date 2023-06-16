@@ -45,7 +45,9 @@ struct MainMessagesTitle: View {
                 isShowingSettings.toggle()
             }
             .sheet(isPresented: $isShowingSettings) {
-                SettingsView()
+                SettingsView(
+                    displayName: vm.currentUser?.displayName ?? "",
+                    phone: vm.currentUser?.phoneNumber ?? "")
             }
 
             Button {
