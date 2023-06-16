@@ -23,9 +23,9 @@ struct MainMessagesView: View {
             VStack {
                 MainMessagesTitle(isMessagesShown: $isMessagesShown)
 
-                messages
-
                 NavigationLink("", value: chatReceivingUser)
+
+                messages
             }
             .background(Color("Peach"))
             .navigationDestination(isPresented: $shouldNavigateToChatLogView, destination: {
@@ -33,6 +33,13 @@ struct MainMessagesView: View {
             })
             .overlay(alignment: .bottom) {
                 newMessageButton
+            }
+            .safeAreaInset(edge: .bottom, spacing: 0) {
+                VStack {
+//                    Text("Footer")
+                }
+                .frame(maxWidth: .infinity)
+                .background(.white)
             }
         }
         .font(Font.custom("Poppins-Medium", size: 16))

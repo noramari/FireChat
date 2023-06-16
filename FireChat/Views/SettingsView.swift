@@ -98,8 +98,8 @@ struct SettingsView: View {
                     Image(systemName: "pencil.circle.fill")
                         .symbolRenderingMode(.palette)
                         .foregroundStyle(.black, Color("PeachFont"))
-                        .font(Font.custom("Poppins-SemiBold", size: 18))
-                        .offset(x: -3, y: -3)
+                        .font(Font.custom("Poppins-SemiBold", size: 19))
+                        .offset(x: -4, y: -4)
                 }
             }
             .padding()
