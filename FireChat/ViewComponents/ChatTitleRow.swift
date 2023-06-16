@@ -42,7 +42,13 @@ struct ChatTitleRow: View {
                 .background(.white)
                 .cornerRadius(50)
                 .onTapGesture {
-                    isShowingAlert = true
+                    let numberString = chatUser?.phoneNumber ?? ""
+                    if numberString == "" {
+                        isShowingAlert = true
+                    } else {
+                        guard let url = URL(string: numberString) else { return }
+                        UIApplication.shared.open(url)
+                    }
                 }
                 .alert("This user is not available for calls", isPresented: $isShowingAlert) {
                     Button("OK", role: .cancel) { }

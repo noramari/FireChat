@@ -8,34 +8,45 @@
 import SwiftUI
 
 struct ChatView: View {
-    @ObservedObject private var vm = ChatViewModel()
-    
-    let chatUser: User?
+//    let chatUser: User?
+
+//    init(chatUser: User?) {
+//        self.chatUser = chatUser
+//        self.vm = .init(receivingUser: chatUser)
+//    }
+
+    @ObservedObject var vm: ChatViewModel
 
     var body: some View {
         NavigationStack {
             VStack {
-                ChatTitleRow(chatUser: chatUser)
+                ChatTitleRow(chatUser: vm.receivingUser)
 
                 ScrollViewReader { proxy in
                     ScrollView {
-//                        ForEach(messagesManager.messages, id: \.id) { message in
-//                            MessageBubble(message: message)
-//                        }
+                        ForEach(vm.chatMessages, id: \.id) { message in
+                            MessageBubble(message: message)
+                        }
                     }
                     .padding(.top, 10)
                     .background(.white)
                     .cornerRadius(25, corners: [.topLeft, .topRight])
-//                    .onChange(of: messagesManager.lastMessageId) { id in
-//                        withAnimation {
-//                            proxy.scrollTo(id, anchor: .bottom)
-//                        }
-//                    }
+                    .onAppear() {
+                        proxy.scrollTo(vm.lastMessageId, anchor: .bottom)
+                    }
+                    .onChange(of: vm.lastMessageId) { id in
+                        withAnimation {
+                            proxy.scrollTo(id, anchor: .bottom)
+                        }
+                    }
                 }
             }
             .background(Color("Peach"))
+            .onDisappear {
+                vm.firestoreListener?.remove()
+            }
 
-            MessageField(receivingUser: chatUser)
+            MessageField(receivingUser: vm.receivingUser)
         }
         .tint(.black)
         .font(Font.custom("Poppins-Medium", size: 16))

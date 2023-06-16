@@ -15,11 +15,13 @@ struct User: Identifiable, Hashable {
     var email: String
     var displayName: String
     var imageURL: String
+    var phoneNumber: String
 
     init(data: [String: Any]) {
-        self.uid = data["uid"] as? String ?? ""
-        self.email = data["email"] as? String ?? ""
-        self.displayName = data["displayName"] as? String ?? email.components(separatedBy: "@")[0].capitalized
-        self.imageURL = data["imageURL"] as? String ?? ""
+        self.uid = data[FirebaseConstants.uid] as? String ?? ""
+        self.email = data[FirebaseConstants.email] as? String ?? ""
+        self.displayName = data[FirebaseConstants.displayName] as? String ?? email.components(separatedBy: "@")[0].capitalized
+        self.imageURL = data[FirebaseConstants.imageUrl] as? String ?? ""
+        self.phoneNumber = data[FirebaseConstants.phoneNumber] as? String ?? ""
     }
 }

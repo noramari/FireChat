@@ -12,9 +12,11 @@ struct MainMessagesView: View {
 
     @Binding var isMessagesShown: Bool
 
-    @State var chatUser: User?
+    @State var chatReceivingUser: User?
     @State var isShowingNewMessageScreen = false
     @State var shouldNavigateToChatLogView = false
+
+    var chatViewModel = ChatViewModel(receivingUser: nil)
 
     var body: some View {
         NavigationStack {
@@ -23,11 +25,11 @@ struct MainMessagesView: View {
 
                 messages
 
-                NavigationLink("", value: chatUser)
+                NavigationLink("", value: chatReceivingUser)
             }
             .background(Color("Peach"))
             .navigationDestination(isPresented: $shouldNavigateToChatLogView, destination: {
-                ChatView(chatUser: chatUser)
+                ChatView(vm: chatViewModel)
             })
             .overlay(alignment: .bottom) {
                 newMessageButton
@@ -37,7 +39,9 @@ struct MainMessagesView: View {
         .sheet(isPresented: $isShowingNewMessageScreen) {
             NewMessageView(didSelectNewUser: { user in
                 self.shouldNavigateToChatLogView.toggle()
-                self.chatUser = user
+                self.chatReceivingUser = user
+                self.chatViewModel.receivingUser = user
+                self.chatViewModel.fetchMessages()
             })
         }
     }
@@ -45,21 +49,61 @@ struct MainMessagesView: View {
     var messages: some View {
         ScrollViewReader { proxy in
             ScrollView {
-//                        ForEach(messagesManager.messages, id: \.id) { message in
-//                            MessageBubble(message: message)
-//                        }
-                ForEach(0..<10, id: \.self) { num in
-                    MainMessagesRow()
+                ForEach(vm.recentMessages, id: \.id) { message in
+
+                    Button {
+                        let uid = FirebaseManager.shared.auth.currentUser?.uid == message.fromId ? message.toId : message.fromId
+                        self.chatReceivingUser = .init(data: [FirebaseConstants.email: message.email, FirebaseConstants.imageUrl: message.imageURL, FirebaseConstants.uid: uid])
+                        print(chatReceivingUser)
+                        self.chatViewModel.receivingUser = self.chatReceivingUser
+                        self.chatViewModel.fetchMessages()
+                        self.shouldNavigateToChatLogView.toggle()
+                    } label: {
+                        HStack(spacing: 20) {
+                            ZStack(alignment: .bottomTrailing) {
+                                AsyncImage(url: URL(string: message.imageURL)) { image in
+                                    image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 50, height: 50)
+                                        .cornerRadius(50)
+                                } placeholder: {
+                                    ProgressView()
+                                }
+
+//                                Image(systemName: "circle.fill")
+//                                    .foregroundColor(.green)
+//                                    .font(Font.custom("Poppins-SemiBold", size: 12))
+                            }
+
+                            VStack(alignment: .leading) {
+                                Text(message.displayName)
+                                    .font(Font.custom("Poppins-SemiBold", size: 20, relativeTo: .title))
+                                if FirebaseManager.shared.auth.currentUser?.uid == message.fromId {
+                                    Text("You: \(message.text)")
+                                        .font(Font.custom("Poppins-Regular", size: 16))
+                                        .lineLimit(2, reservesSpace: false)
+                                        .multilineTextAlignment(.leading)
+                                } else {
+                                    Text(message.text)
+                                        .lineLimit(2, reservesSpace: false)
+                                        .multilineTextAlignment(.leading)
+                                }
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+
+                            Text(message.timeAgo)
+                        }
+                        .foregroundColor(.black)
+                        .padding(.horizontal)
+                    }
+                    Divider()
+
                 }
             }
             .padding(.top, 10)
             .background(.white)
             .cornerRadius(25, corners: [.topLeft, .topRight])
-//                    .onChange(of: messagesManager.lastMessageId) { id in
-//                        withAnimation {
-//                            proxy.scrollTo(id, anchor: .bottom)
-//                        }
-//                    }
         }
     }
 

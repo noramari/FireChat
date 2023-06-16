@@ -6,23 +6,29 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct MainMessagesRow: View {
-    var image = "ProfilePic"
-    var name = "Sarah Tanaka"
-    var user: User?
-    
+    @ObservedObject var vm: ChatViewModel
+
+    var message: RecentMessage
+    var user: User
+
     var body: some View {
         NavigationLink {
-            ChatView(chatUser: user)
+            ChatView(vm: vm)
         } label: {
             HStack(spacing: 20) {
                 ZStack(alignment: .bottomTrailing) {
-                    Image(image)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 50, height: 50)
-                        .cornerRadius(50)
+                    AsyncImage(url: URL(string: user.imageURL)) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 50, height: 50)
+                            .cornerRadius(50)
+                    } placeholder: {
+                        ProgressView()
+                    }
 
                     Image(systemName: "circle.fill")
                         .foregroundColor(.green)
@@ -30,23 +36,23 @@ struct MainMessagesRow: View {
                 }
 
                 VStack(alignment: .leading) {
-                    Text(name)
+                    Text(user.displayName)
                         .font(Font.custom("Poppins-SemiBold", size: 20, relativeTo: .title))
-                    Text("Message here")
+                    Text(message.text)
+                        .multilineTextAlignment(.leading)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
 
-                Text("22d")
+                Text(message.timeAgo)
             }
             .foregroundColor(.black)
             .padding(.horizontal)
         }
+        .onAppear() {
+            print(message)
+            self.vm.receivingUser = user
+            self.vm.fetchMessages()
+        }
         Divider()
-    }
-}
-
-struct MainMessagesRow_Previews: PreviewProvider {
-    static var previews: some View {
-        MainMessagesRow()
     }
 }

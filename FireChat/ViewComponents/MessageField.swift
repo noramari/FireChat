@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct MessageField: View {
-    @ObservedObject private var vm = ChatViewModel()
-
     var receivingUser: User?
+
+    init(receivingUser: User?) {
+        self.receivingUser = receivingUser
+        self.vm = .init(receivingUser: receivingUser)
+    }
+
+    @ObservedObject var vm: ChatViewModel
 
     @State private var message = ""
 
@@ -27,7 +32,7 @@ struct MessageField: View {
             CustomTextField(placeholder: Text("Enter your message here"), text: $message)
 
             Button {
-                vm.sendMessage(message: message, receiverID: receivingUser?.uid ?? "")
+                vm.sendMessage(message: message)
                 message = ""
             } label: {
                 Image(systemName: "paperplane.fill")

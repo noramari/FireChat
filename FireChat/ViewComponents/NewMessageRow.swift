@@ -17,8 +17,8 @@ struct NewMessageRow: View {
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: 70, height: 70)
-                        .cornerRadius(70)
+                        .frame(width: 80, height: 80)
+                        .cornerRadius(80)
                 } placeholder: {
                     ProgressView()
                 }

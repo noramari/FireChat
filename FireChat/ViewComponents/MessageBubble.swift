@@ -12,31 +12,32 @@ struct MessageBubble: View {
 
     @State private var showTime = false
 
+    var isMessageReceived: Bool {
+        message.toId == FirebaseManager.shared.auth.currentUser?.uid
+    }
+
     var body: some View {
-        VStack {
-            Text("Message")
+        VStack(alignment: isMessageReceived ? .leading : .trailing) {
+            HStack {
+                Text(message.text)
+                    .padding()
+                    .background(isMessageReceived ? Color("Gray") : Color("Peach"))
+                    .cornerRadius(30)
+            }
+            .frame(maxWidth: 300, alignment: isMessageReceived ? .leading : .trailing)
+            .onTapGesture {
+                showTime.toggle()
+            }
+
+            if showTime {
+                Text("\(message.timestamp.dateValue().formatted(.dateTime.hour().minute()))")
+                    .font(.caption2)
+                    .foregroundColor(.gray)
+                    .padding(isMessageReceived ? .leading : .trailing, 25)
+            }
         }
-//        VStack(alignment: message.received ? .leading : .trailing) {
-//            HStack {
-//                Text(message.text)
-//                    .padding()
-//                    .background(message.received ? Color("Gray") : Color("Peach"))
-//                    .cornerRadius(30)
-//            }
-//            .frame(maxWidth: 300, alignment: message.received ? .leading : .trailing)
-//            .onTapGesture {
-//                showTime.toggle()
-//            }
-//
-//            if showTime {
-//                Text("\(message.timestamp.formatted(.dateTime.hour().minute()))")
-//                    .font(.caption2)
-//                    .foregroundColor(.gray)
-//                    .padding(message.received ? .leading : .trailing, 25)
-//            }
-//        }
-//        .frame(maxWidth: .infinity, alignment: message.received ? .leading : .trailing)
-//        .padding(message.received ? .leading : .trailing)
-        .padding(.horizontal, 10)
+        .frame(maxWidth: .infinity, alignment: isMessageReceived ? .leading : .trailing)
+        .padding(isMessageReceived ? .leading : .trailing)
+        .padding(.horizontal)
     }
 }

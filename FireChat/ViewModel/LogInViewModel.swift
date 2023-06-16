@@ -35,6 +35,7 @@ class LogInViewModel: ObservableObject {
             self.loginStatusMessage = "Succesfully logged in: \(result?.user.uid ?? "")"
             print("Succesfully logged in: \(result?.user.uid ?? "")")
             self.isUserCurrentlyLoggedIn = true
+            self.loginStatusMessage = ""
         }
     }
 
@@ -56,6 +57,7 @@ class LogInViewModel: ObservableObject {
             }
 
             self.checkIfLoggedIn()
+            self.loginStatusMessage = ""
         }
     }
 
@@ -83,6 +85,7 @@ class LogInViewModel: ObservableObject {
 
                 guard let url = url else { return }
                 self.storeUserInformation(imageURL: url)
+                self.loginStatusMessage = ""
             }
         }
     }
@@ -90,7 +93,11 @@ class LogInViewModel: ObservableObject {
     private func storeUserInformation(imageURL: URL) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         guard let email = FirebaseManager.shared.auth.currentUser?.email else { return }
-        let userData = ["email": email, "uid": uid, "imageURL": imageURL.absoluteString]
+        let displayName = email.components(separatedBy: "@")[0].capitalized
+        let userData = [FirebaseConstants.email: email,
+                        FirebaseConstants.uid: uid,
+                        FirebaseConstants.imageUrl: imageURL.absoluteString,
+                        FirebaseConstants.displayName: displayName]
 
         FirebaseManager.shared.firestore.collection("users").document(uid).setData(userData) { error in
             if let error = error {
@@ -98,6 +105,7 @@ class LogInViewModel: ObservableObject {
                 print("Failed to store user info:", error.localizedDescription)
                 return
             }
+            self.loginStatusMessage = ""
         }
     }
 }
